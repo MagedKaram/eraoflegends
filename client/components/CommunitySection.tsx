@@ -1,4 +1,3 @@
-import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CommunitySection() {
@@ -21,10 +20,6 @@ export default function CommunitySection() {
       description: t("community.support.desc"),
     },
   ];
-  const goToDiscord = () => {
-    window.open("https://discord.gg/8wnwnA5XgP", "_blank");
-  };
-
   return (
     <section className="py-20 relative bg-navy-900/30">
       <div className="absolute inset-0 opacity-5">

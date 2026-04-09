@@ -1,9 +1,8 @@
-import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-  const { t, isRTL, language } = useLanguage();
+  const { t, isRTL } = useLanguage();
 
   return (
     <footer className="relative bg-navy-900/95 backdrop-blur-sm border-t border-gold-500/20">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { loginRequest } from "../../src/lib/laravelAuth";
@@ -64,7 +64,7 @@ export default function SignIn() {
         setServerError(
           isRTL
             ? "انتهت الجلسة، حدّث الصفحة وحاول ثانيةً"
-            : "Session expired, refresh and try again."
+            : "Session expired, refresh and try again.",
         );
       } else {
         setServerError(isRTL ? "فشل تسجيل الدخول" : "Login failed");
