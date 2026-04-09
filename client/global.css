@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Cinzel:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Fantasy MMORPG Theme - Navy Blue & Gold
+   * All color variables are expressed as HSL values.
+  */
+  :root {
+    /* Base colors for fantasy theme */
+    --background: 218 100% 4%;
+    --foreground: 47 96% 89%;
+
+    --card: 218 50% 8%;
+    --card-foreground: 47 96% 89%;
+
+    --popover: 218 50% 8%;
+    --popover-foreground: 47 96% 89%;
+
+    --primary: 47 96% 53%;
+    --primary-foreground: 218 100% 4%;
+
+    --secondary: 218 50% 12%;
+    --secondary-foreground: 47 96% 89%;
+
+    --muted: 218 50% 10%;
+    --muted-foreground: 47 50% 70%;
+
+    --accent: 47 96% 53%;
+    --accent-foreground: 218 100% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 218 50% 15%;
+    --input: 218 50% 12%;
+    --ring: 47 96% 53%;
+
+    --radius: 0.75rem;
+
+    /* Navy color palette */
+    --navy-50: 220 43% 97%;
+    --navy-100: 220 43% 94%;
+    --navy-200: 220 43% 88%;
+    --navy-300: 220 43% 78%;
+    --navy-400: 220 43% 65%;
+    --navy-500: 220 43% 50%;
+    --navy-600: 220 43% 40%;
+    --navy-700: 218 50% 30%;
+    --navy-800: 218 50% 18%;
+    --navy-900: 218 100% 8%;
+    --navy-950: 218 100% 4%;
+
+    /* Gold color palette */
+    --gold-50: 47 96% 96%;
+    --gold-100: 47 96% 91%;
+    --gold-200: 47 96% 82%;
+    --gold-300: 47 96% 71%;
+    --gold-400: 47 96% 62%;
+    --gold-500: 47 83.88% 55%;
+    --gold-600: 42 87% 48%;
+    --gold-700: 35 74% 40%;
+    --gold-800: 30 67% 33%;
+    --gold-900: 25 55% 27%;
+
+    --sidebar-background: 218 50% 8%;
+    --sidebar-foreground: 47 96% 89%;
+    --sidebar-primary: 47 96% 53%;
+    --sidebar-primary-foreground: 218 100% 4%;
+    --sidebar-accent: 218 50% 12%;
+    --sidebar-accent-foreground: 47 96% 89%;
+    --sidebar-border: 218 50% 15%;
+    --sidebar-ring: 47 96% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Cairo", sans-serif;
+    transition: direction 0.3s ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+
+  [dir="ltr"] {
+    direction: ltr;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Cinzel", serif;
+  }
+
+  /* Arabic font for Arabic text */
+  .font-arabic {
+    font-family: "Cairo", sans-serif;
+  }
+
+  /* English font for English text */
+  .font-english {
+    font-family: "Cinzel", serif;
+  }
+}
+
+@layer components {
+  .fantasy-border {
+    @apply relative;
+  }
+
+  .fantasy-border::before {
+    @apply absolute inset-0 rounded-lg;
+    content: "";
+    background: linear-gradient(
+      45deg,
+      hsl(var(--gold-500)) 0%,
+      transparent 30%,
+      transparent 70%,
+      hsl(var(--gold-500)) 100%
+    );
+    padding: 2px;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  .glow-text {
+    text-shadow:
+      0 0 10px hsl(var(--gold-500) / 0.5),
+      0 0 20px hsl(var(--gold-500) / 0.3),
+      0 0 30px hsl(var(--gold-500) / 0.1);
+  }
+
+  .btn-gold {
+    @apply bg-gold-500 text-navy-950 hover:bg-gold-400 transition-all duration-300;
+    @apply shadow-glow-gold hover:shadow-glow-gold-lg;
+    @apply border border-gold-600 rounded-lg px-6 py-3 font-semibold;
+  }
+
+  .btn-gold-outline {
+    @apply bg-transparent text-gold-500 hover:bg-gold-500 hover:text-navy-950;
+    @apply border-2 border-gold-500 transition-all duration-300;
+    @apply shadow-glow-gold hover:shadow-glow-gold-lg;
+    @apply rounded-lg px-6 py-3 font-semibold;
+  }
+}
+
+/* RTL Fixes */
+[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+  margin-right: calc(var(--tw-space-x) * var(--tw-space-x-reverse));
+  margin-left: calc(var(--tw-space-x) * calc(1 - var(--tw-space-x-reverse)));
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fbbf24;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Animation enhancements */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px hsl(var(--gold-500) / 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 40px hsl(var(--gold-500) / 0.6),
+      0 0 60px hsl(var(--gold-500) / 0.3);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Language transition animations */
+.language-transition {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
